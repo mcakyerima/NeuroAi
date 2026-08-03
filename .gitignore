@@ -1,0 +1,42 @@
+# Python environment
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter / notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# Editor / OS files
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Training and scratch files
+Brain_Tumor_Detection_Colab_GPU_Optimized.ipynb
+Brain_Tumor_Detection_Project.ipynb
+convert_model.py
+build_presentation.py
+MAXI_PRESENTATION_PROMPT.md
+PRESENTATION_PROMPT.md
+
+# Demo/API files to exclude if you are only publishing the UI app
+fast_flask_app.py
+fast_brain_tumor_predictor.py
+brain_tumor_fast_model.keras
+model_metadata.json
+
+# Temporary uploads
+uploads/*
+static/uploads/*
+!uploads/.gitkeep
+!static/uploads/.gitkeep
+
+# Logs
+*.log
+
+# If you do not want to publish the Windows-only local trained model, remove this line
+# best_model.h5
