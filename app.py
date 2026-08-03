@@ -4,12 +4,28 @@ from flask import Flask, render_template, request
 import tensorflow as tf
 import numpy as np
 import os
+from tensorflow.keras.layers import InputLayer
 from tensorflow.keras.preprocessing import image
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 # model = tf.keras.models.load_model("best_model.h5")
-model = tf.keras.models.load_model("best_model.h5", compile=False)
+
+
+class CompatInputLayer(InputLayer):
+    @classmethod
+    def from_config(cls, config):
+        config = dict(config)
+        if "batch_shape" in config and "batch_input_shape" not in config:
+            config["batch_input_shape"] = config.pop("batch_shape")
+        return cls(**config)
+
+
+model = tf.keras.models.load_model(
+    "best_model.h5",
+    compile=False,
+    custom_objects={"InputLayer": CompatInputLayer},
+)
 
 
 UPLOAD_FOLDER = 'static/uploads'
