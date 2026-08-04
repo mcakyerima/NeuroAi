@@ -1,0 +1,60 @@
+{
+  "model_name": "Robust Brain Tumor Detection CNN v3.0",
+  "version": "3.0_production",
+  "tensorflow_version": "2.18.0",
+  "architecture": "EfficientNetB0 + Custom Classification Head",
+  "input_shape": [
+    224,
+    224,
+    3
+  ],
+  "num_classes": 4,
+  "class_names": [
+    "glioma_tumor",
+    "meningioma_tumor",
+    "no_tumor",
+    "pituitary_tumor"
+  ],
+  "class_indices": {
+    "glioma_tumor": 0,
+    "meningioma_tumor": 1,
+    "no_tumor": 2,
+    "pituitary_tumor": 3
+  },
+  "performance": {
+    "test_accuracy": 0.922764241695404,
+    "test_loss": 0.20091581344604492,
+    "test_top_k_accuracy": 1.0,
+    "best_val_accuracy": 0.9222903847694397,
+    "per_class_accuracy": {
+      "glioma_tumor": 0.9317269076305221,
+      "meningioma_tumor": 0.8467741935483871,
+      "no_tumor": 0.9789915966386554,
+      "pituitary_tumor": 0.9357429718875502
+    }
+  },
+  "training": {
+    "training_time_minutes": 50.48339603344599,
+    "total_epochs": 25,
+    "stage1_epochs": 13,
+    "stage2_epochs": 12,
+    "batch_size": 32,
+    "class_weights_used": true
+  },
+  "model_stats": {
+    "total_parameters": 4878375,
+    "trainable_parameters": 4832256,
+    "model_size_mb": 56.47639274597168
+  },
+  "preprocessing": {
+    "target_size": [
+      224,
+      224
+    ],
+    "normalization": "rescale_1_255",
+    "advanced_preprocessing": true,
+    "augmentation_applied": true
+  },
+  "confidence_threshold": 0.7,
+  "created_date": "2025-07-25 19:27:34"
+}
